@@ -13,6 +13,7 @@ https://material.io/color/#!/?view.left=0&view.right=0
 -->
 <color name="laranja">#f4511e</color>
 <color name="verdeClaro">#c8e6c9</color>
-    <color name="branco">#FFFFFF</color>>
+    <color name="branco">#ffffff</color>
+    <color name="preto">#000000</color>
 
 </resources>

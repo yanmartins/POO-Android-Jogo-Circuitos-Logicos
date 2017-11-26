@@ -29,6 +29,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void iniciarDicasActivity(View view){
+        Intent intent = new Intent(this, DicasActivity.class);
+        startActivity(intent);
+    }
+
+
+
 
     @Override
     public void onBackPressed() {

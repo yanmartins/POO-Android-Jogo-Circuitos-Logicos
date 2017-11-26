@@ -2,13 +2,16 @@ package poo.engtelecom;
 
 import android.content.Context;
 
-/**
- * Classe para representar graficamente uma porta lógica AND na tela. Nessa classe são guardadas as
- * coordenadas dos pinos de entrada e saída, bem como o identificador do Recurso drawble (imagem).
- */
-public class Andgate extends LogicGate {
+import poo.engtelecom.LogicGate;
+import poo.engtelecom.R;
 
-    private static final int sIMAGE = R.drawable.and;
+/**
+ * Created by aluno on 24/11/17.
+ */
+
+public class OrGate extends LogicGate {
+
+    private static final int sIMAGE = R.drawable.or;
 
     private static final int sOFFSETOUTPUTX = 45;
     private static final int sOFFSETOUTPUTY = 0;
@@ -22,7 +25,8 @@ public class Andgate extends LogicGate {
     private int inputBX;
     private int inputBY;
 
-    public Andgate(Context context, int coordX, int coordY) {
+
+    public OrGate(Context context, int coordX, int coordY) {
         super(context, sIMAGE, coordX, coordY);
 
         outputX = x + sOFFSETOUTPUTX;
@@ -33,8 +37,6 @@ public class Andgate extends LogicGate {
 
         inputBX = x + sOFFSETINPUTBX;
         inputBY = y + bitmap.getHeight() + sOFFSETINPUTBY;
-
-
     }
 
     public int getInputBX() {
@@ -45,4 +47,3 @@ public class Andgate extends LogicGate {
         return inputBY;
     }
 }
-

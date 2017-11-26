@@ -13,7 +13,7 @@ public class Botao extends Componente {
     private boolean pressionado;
 
     public Botao(Context context, int x, int y) {
-        super(context, R.drawable.bup, x, y);
+        super(context, R.drawable.desativado, x, y);
         pressionado = false;
     }
 
@@ -22,9 +22,9 @@ public class Botao extends Componente {
      */
     public void pressionar(){
         if (pressionado){
-            this.setBitmap(R.drawable.bup);
+            this.setBitmap(R.drawable.desativado);
         }else {
-            this.setBitmap(R.drawable.bdown);
+            this.setBitmap(R.drawable.ativado);
         }
         pressionado = ! pressionado;
     }
