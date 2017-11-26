@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Circuito Logico</string>
+    <string name="startButton">Iniciar</string>
+    <string name="dialog_gameview_exit_message">Deseja voltar para a tela inicial?</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="recordes">Recordes de pontuação</string>
+    <string name="dialog_game_exit">Deseja realmente sair do jogo?</string>
+</resources>

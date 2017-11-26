@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+<!--
+Ferramenta para gerar cores para o Android seguindo a Material Design
+
+https://material.io/color/#!/?view.left=0&view.right=0
+
+-->
+<color name="laranja">#f4511e</color>
+<color name="verdeClaro">#c8e6c9</color>
+    <color name="branco">#FFFFFF</color>>
+
+</resources>
