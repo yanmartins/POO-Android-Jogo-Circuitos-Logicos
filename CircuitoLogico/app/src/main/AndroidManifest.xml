@@ -24,7 +24,8 @@
         <activity android:name=".AndActivity" />
         <activity android:name=".OrActivity" />
         <activity android:name=".NotActivity" />
-        <activity android:name=".XorActivity"></activity>
+        <activity android:name=".XorActivity" />
+        <activity android:name=".FasesActivity"></activity>
     </application>
 
 </manifest>

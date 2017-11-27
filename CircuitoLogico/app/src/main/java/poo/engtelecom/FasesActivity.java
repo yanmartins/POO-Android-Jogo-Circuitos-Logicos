@@ -7,38 +7,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-/**
- * Created by mello on 14/11/17.
- */
-
-public class MainActivity extends AppCompatActivity {
+public class FasesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_fases);
     }
 
     public void iniciarGameActivity(View view){
         Intent intent = new Intent(this, GameActivity.class);
         startActivity(intent);
     }
-
-    public void iniciarScoreActivity(View view){
-        Intent intent = new Intent(this, ScoreActivity.class);
-        startActivity(intent);
-    }
-
-    public void iniciarDicasActivity(View view){
-        Intent intent = new Intent(this, DicasActivity.class);
-        startActivity(intent);
-    }
-
-    public void iniciarFasesActivity(View view){
-        Intent intent = new Intent(this, FasesActivity.class);
-        startActivity(intent);
-    }
-
 
     @Override
     public void onBackPressed() {
@@ -64,5 +44,4 @@ public class MainActivity extends AppCompatActivity {
         alert.show();
 
     }
-
 }

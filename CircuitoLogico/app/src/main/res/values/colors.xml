@@ -15,5 +15,6 @@ https://material.io/color/#!/?view.left=0&view.right=0
 <color name="verdeClaro">#c8e6c9</color>
     <color name="branco">#ffffff</color>
     <color name="preto">#000000</color>
+    <color name="azul">#0f00f0</color>
 
 </resources>

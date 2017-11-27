@@ -5,7 +5,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceView;
 import android.view.SurfaceHolder;
@@ -128,7 +127,7 @@ public class GameView extends SurfaceView{
 
     private List<Botao> botoes;
     private List<Fio> fios;
-    private List<Andgate> portas;
+    private List<AndGate> portas;
     private List<Segmento> segmentos;
 
     public GameView(Context context, int width, int height) {
@@ -142,7 +141,7 @@ public class GameView extends SurfaceView{
 
         botoes = new ArrayList<Botao>();
         fios = new ArrayList<Fio>();
-        portas = new ArrayList<Andgate>();
+        portas = new ArrayList<AndGate>();
         segmentos = new ArrayList<Segmento>();
 
         criarPortas();
@@ -271,9 +270,9 @@ public class GameView extends SurfaceView{
     }
 
     private void criarPortas(){
-        Andgate andGate = new Andgate(context, width/2-50, height/4);
-        Andgate andGate2 = new Andgate(context, width/4-50, height/2);
-        Andgate andGate3 = new Andgate(context, width-(width/4)-83, height/2);
+        AndGate andGate = new AndGate(context, width/2-50, height/4);
+        AndGate andGate2 = new AndGate(context, width/4-50, height/2);
+        AndGate andGate3 = new AndGate(context, width-(width/4)-83, height/2);
 
         portas.add(andGate);
         portas.add(andGate2);

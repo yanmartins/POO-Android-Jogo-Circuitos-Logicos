@@ -6,7 +6,7 @@ import android.content.Context;
  * Classe para representar graficamente uma porta lógica AND na tela. Nessa classe são guardadas as
  * coordenadas dos pinos de entrada e saída, bem como o identificador do Recurso drawble (imagem).
  */
-public class Andgate extends LogicGate {
+public class AndGate extends LogicGate {
 
     private static final int sIMAGE = R.drawable.and;
 
@@ -22,7 +22,7 @@ public class Andgate extends LogicGate {
     private int inputBX;
     private int inputBY;
 
-    public Andgate(Context context, int coordX, int coordY) {
+    public AndGate(Context context, int coordX, int coordY) {
         super(context, sIMAGE, coordX, coordY);
 
         outputX = x + sOFFSETOUTPUTX;
