@@ -8,6 +8,7 @@ import android.graphics.Path;
 import android.view.MotionEvent;
 import android.view.SurfaceView;
 import android.view.SurfaceHolder;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -209,6 +210,15 @@ public class GameView extends SurfaceView{
         if(!segmentos.get(4).isSegmentoLigado() || !segmentos.get(5).isSegmentoLigado()){
             segmentos.get(1).setSegmentoLigado(false);
         }
+        if(botoes.get(5).clicouNoBotao(x,y)){
+            botoes.get(5).pressionarValidar();
+            String mensagem = "Validar";
+
+            Toast toast = Toast.makeText(context, mensagem, Toast.LENGTH_LONG);
+            toast.show();
+
+            //botoes.get(5).pressionarValidar();
+        }
     }
 
     @Override
@@ -261,12 +271,15 @@ public class GameView extends SurfaceView{
         Botao botao3 = new Botao(context, 290, height - 150);
         Botao botao4 = new Botao(context, 435, height - 150);
         Botao botao5 = new Botao(context, width - 140, height - 150);
+        Botao botao6 = new Botao(context,1,width - 100,height - 1792);
+
 
         botoes.add(botao1);
         botoes.add(botao2);
         botoes.add(botao3);
         botoes.add(botao4);
         botoes.add(botao5);
+        botoes.add(botao6);
     }
 
     private void criarPortas(){
