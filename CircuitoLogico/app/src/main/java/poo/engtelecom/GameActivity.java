@@ -35,12 +35,12 @@ public class GameActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.DialogStyleGreenAndYellow);
-        builder.setMessage(R.string.dialog_gameview_exit_message)
+        builder.setMessage("Deseja voltar ao menu de fases?")
                 .setCancelable(false)
                 .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), FasesActivity.class);
                         startActivity(intent);
                         finish();
                     }

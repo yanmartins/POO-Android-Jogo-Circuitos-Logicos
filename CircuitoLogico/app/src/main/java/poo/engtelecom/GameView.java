@@ -1,6 +1,7 @@
 package poo.engtelecom;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -8,6 +9,7 @@ import android.graphics.Path;
 import android.view.MotionEvent;
 import android.view.SurfaceView;
 import android.view.SurfaceHolder;
+import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -25,6 +27,7 @@ public class GameView extends SurfaceView{
     private int width; // largura do display
     private int height; // altura do display
     private Paint paint;
+
 
     // Os atributos abaixo são usados somente para representar um simples exemplo de como
     // instanciar e desenhar componentes em uma SurfaceView, bem como tratar um evento de toque na tela
@@ -212,12 +215,11 @@ public class GameView extends SurfaceView{
         }
         if(botoes.get(5).clicouNoBotao(x,y)){
             botoes.get(5).pressionarValidar();
-            String mensagem = "Validar";
+            String mensagem = "Validando";
 
             Toast toast = Toast.makeText(context, mensagem, Toast.LENGTH_LONG);
             toast.show();
 
-            //botoes.get(5).pressionarValidar();
         }
     }
 
