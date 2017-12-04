@@ -1,11 +1,14 @@
 package poo.engtelecom;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -39,47 +42,7 @@ public class GameView extends SurfaceView {
 
     private int tamanhoDoSegmento;
     private Context context;
-
-    private class Fio {
-        int startX;
-        int startY;
-        int stopX;
-        int stopY;
-        boolean fioLigado;
-
-        public Fio(int startX, int startY, int stopX, int stopY, boolean fioLigado) {
-            this.startX = startX;
-            this.startY = startY;
-            this.stopX = stopX;
-            this.stopY = stopY;
-            this.fioLigado = fioLigado;
-        }
-
-        public int getStartX() {
-            return startX;
-        }
-
-        public int getStartY() {
-
-            return startY;
-        }
-
-        public int getStopX() {
-            return stopX;
-        }
-
-        public int getStopY() {
-            return stopY;
-        }
-
-        public boolean isFioLigado() {
-            return fioLigado;
-        }
-
-        public void setFioLigado(boolean fioLigado) {
-            this.fioLigado = fioLigado;
-        }
-    }
+    private GameActivity gameActivity;
 
     private class Segmento {
         int startX;
@@ -300,9 +263,10 @@ public class GameView extends SurfaceView {
     private int MAXToques;
     private int reprovacoes;
 
-    public GameView(Context context, int width, int height, String nomeFase) throws IOException {
+    public GameView(Context context, int width, int height, String nomeFase, GameActivity gameActivity) throws IOException {
         super(context);
         this.context = context;
+        this.gameActivity = gameActivity;
         this.width = width;
         this.height = height;
         this.nomeFase = nomeFase;
@@ -311,9 +275,6 @@ public class GameView extends SurfaceView {
         setWillNotDraw(false);
 
         botoes = new ArrayList<Botao>();
-//        fios = new ArrayList<Fio>();
-//        //portasAnd = new ArrayList<AndGate>();
-//        portasOr = new ArrayList<OrGate>();
         portasNot = new ArrayList<NotGate>();
         portas = new ArrayList<LogicGate2>();
 
@@ -395,62 +356,6 @@ public class GameView extends SurfaceView {
         super.onDraw(canvas);
         desenhar();
     }
-
-//    private void criarFios(){
-//        Fio fio1 = new Fio(portasAnd.get(0).getInputAX(),portasAnd.get(0).getInputAY(), (botoes.get(0).getBitmap().getWidth())/2, height-150, false);
-//        //Fio fio2 = new Fio(portas.get(1).getInputAX(),portas.get(1).getInputAY(),((botoes.get(1).getBitmap().getWidth())/2)+145, height-150, false);
-//        Fio fio3 = new Fio(portasAnd.get(1).getInputBX(),portasAnd.get(1).getInputBY(),((botoes.get(2).getBitmap().getWidth())/2)+290, height-150, false);
-//
-//        //fios.add(fio1);
-//        //fios.add(fio2);
-//        //fios.add(fio3);
-//    }
-
-//-------------------------------------------------------------------------------------
-//    public void carregaFase() throws IOException {
-//        Resources resources = getResources();
-//        InputStream inputStream = resources.openRawResource(R.raw.fase1);
-//        String[] vetLinha;
-//        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-//        String ler = null;
-//        try {
-//            //ler = bufferedReader.readLine();
-//            while ((ler = bufferedReader.readLine()) != null) {
-//                vetLinha = ler.split(";");
-//                if (vetLinha[0].equals("and")) {
-//                    System.out.println(vetLinha[0]);
-//                    System.out.println(vetLinha[1]);
-//                    System.out.println(vetLinha[2]);
-//                    System.out.println(width);
-//                    criarPortas2(vetLinha);
-//                }
-//                if (vetLinha[0].equals("botao")) {
-//                    System.out.println(vetLinha[0]);
-//                    System.out.println(vetLinha[1]);
-//                    System.out.println(vetLinha[2]);
-//                    criarBotao(vetLinha);
-//                }
-//                if (vetLinha[0].equals("seg")) {
-//                    criarSeg(vetLinha);
-//                }
-//
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-//-------------------------------------------------------------------------------------
-
-
-    /**
-     * PORTA; TIPO; X; Y
-     * BOTAO; X; segmentoASSOCIADO
-     *
-     */
-    //SEGMENTO; BOTAO; intPORTA; tipoPORTA; terminal; dificuldade; botaoAssociado
-
-    //SEGMENTO; COMUM; portaDestino; terminal; intPortaDest; portaOrigem; intPortaOrigem; dificuldade"
 
     public void carregaFase(String nomeFase) throws IOException {
         AssetManager assetManager = getResources().getAssets();
@@ -640,21 +545,6 @@ public class GameView extends SurfaceView {
         }
     }
 
-//    private void desenharFio(Canvas canvas) {
-//        for (int i = 0; i < fios.size(); i++) {
-//            if (fios.get(i).isFioLigado()) {
-//                paint.setColor(Color.BLUE);
-//            } else {
-//                paint.setColor(Color.BLACK);
-//            }
-//            paint.setStrokeWidth(9f);
-//            paint.setStyle(Paint.Style.STROKE);
-//            paint.setStrokeJoin(Paint.Join.ROUND);
-//
-//            canvas.drawLine(fios.get(i).getStartX(), fios.get(i).getStartY(), fios.get(i).getStopX(), fios.get(i).getStopY(), paint);
-//        }
-//    }
-
     private void desenharBotao(Canvas canvas) {
         for (int i = 0; i < botoes.size(); i++) {
             canvas.drawBitmap(botoes.get(i).getBitmap(), botoes.get(i).getX(), botoes.get(i).getY(), paint);
@@ -677,25 +567,26 @@ public class GameView extends SurfaceView {
     }
 
     private void validacaoDaFase() {
-        /**
-         * QUANTIDADE DE SEGMENTOS PARA VALIDAÇÃO
-         * VERIFICAR SE TODOS ESTÃO LIGADOS
-         */
+
+        String mensagem = null;
         if (portas.get(0).isSegOut()) {
 
-            String mensagem = "CIRCUITO APROVADO 🎉\n" +
+            mensagem = "CIRCUITO APROVADO 🎉\n" +
                     "Toques: " + toquesNaTela + "\n" +
                     "Pontuação: " + calculaPontuacao();
 
-            Toast toast = Toast.makeText(context, mensagem, Toast.LENGTH_LONG);
-            toast.setGravity(Gravity.CENTER, 0, 0);
-            toast.show();
+            gameActivity.showDialogFimdeFase(mensagem);
+
+//            Toast toast = Toast.makeText(context, mensagem, Toast.LENGTH_LONG);
+//            toast.setGravity(Gravity.CENTER, 0, 0);
+//            toast.show();
         } else {
-            String mensagem = "CIRCUITO REPROVADO 😭\n" +
+            mensagem = "CIRCUITO REPROVADO 😭\n" +
                     "-10 pontos";
-            Toast toast = Toast.makeText(context, mensagem, Toast.LENGTH_LONG);
+//            Toast toast = Toast.makeText(context, mensagem, Toast.LENGTH_LONG);
             reprovacoes++;
-            toast.show();
+//            toast.show();
+            gameActivity.showDialogFaseReprovada(mensagem);
         }
     }
 

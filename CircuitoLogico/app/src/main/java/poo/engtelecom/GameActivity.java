@@ -40,7 +40,7 @@ public class GameActivity extends AppCompatActivity {
         Display display = this.getWindowManager().getDefaultDisplay();
 
         try {
-            gameView = new GameView(this, display.getWidth(), display.getHeight(),fase);
+            gameView = new GameView(this, display.getWidth(), display.getHeight(),fase, this);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -82,5 +82,46 @@ public class GameActivity extends AppCompatActivity {
     }
 
 
+    public void showDialogFimdeFase(String mensagem) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.DialogStyleGreenAndYellow);
+        builder.setMessage(mensagem)
+                .setCancelable(false)
+                .setPositiveButton(R.string.voltar, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
 
+                        Intent intent = new Intent(getApplicationContext(), FasesActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                })
+                .setNegativeButton(R.string.proxima, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
+
+    }
+
+    public void showDialogFaseReprovada(String mensagem) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.DialogStyleGreenAndYellow);
+        builder.setMessage(mensagem)
+                .setCancelable(false)
+                .setPositiveButton(R.string.voltar, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        Intent intent = new Intent(getApplicationContext(), FasesActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                })
+                .setNegativeButton(R.string.continuar, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
 }
