@@ -39,6 +39,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void iniciarNovoJogadorActivity(View view){
+        Intent intent = new Intent(this, NovoJogadorActivity.class);
+        startActivity(intent);
+    }
+
+
 
     @Override
     public void onBackPressed() {

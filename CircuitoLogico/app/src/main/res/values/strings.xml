@@ -6,4 +6,7 @@
     <string name="no">Não</string>
     <string name="recordes">Recordes de pontuação</string>
     <string name="dialog_game_exit">Deseja realmente sair do jogo?</string>
+    <string name="voltar">Retornar para o menu</string>
+    <string name="proxima">Próxima Fase</string>
+    <string name="continuar">Continuar</string>
 </resources>
