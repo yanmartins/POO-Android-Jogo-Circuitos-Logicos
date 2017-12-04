@@ -11,20 +11,21 @@ public class Botao extends Componente {
 
     // true para indicar que o botão está pressionado
     private boolean pressionado;
-    private boolean validarpress;
+    private boolean validarPress;
+    private int segmentoAssociado;
 
-    public Botao(Context context, int x, int y) {
+    public Botao(Context context, int x, int y, int segmentoAssociado) {
         super(context, R.drawable.desativado, x, y);
         pressionado = false;
+        this.segmentoAssociado = segmentoAssociado;
     }
 
-    public Botao(Context context, int drawableResource, int x, int y) {
+    public Botao(Context context, int drawableResource, int x, int y, int segmentoAssociado) {
         super(context, R.drawable.offvalidar, x, y);
-        validarpress = false;
+        validarPress = false;
     }
 
     /**
-
      * Troca a imagem do botão de acordo com seu estado
      */
     public void pressionar(){
@@ -43,6 +44,10 @@ public class Botao extends Componente {
             this.setBitmap(R.drawable.onvalidar);
         }
         pressionado = ! pressionado;
+    }
+
+    public int getSegmentoAssociado() {
+        return segmentoAssociado;
     }
 
     /**

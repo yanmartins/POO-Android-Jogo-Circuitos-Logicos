@@ -2,10 +2,12 @@ package poo.engtelecom;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Display;
+
+import java.io.IOException;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -14,10 +16,34 @@ public class GameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        String fase = null;
+        Bundle bundle = getIntent().getExtras();
+        if(bundle.containsKey("FASE1")){
+            fase = bundle.getString("FASE1");
+        }
+        if(bundle.containsKey("FASE2")){
+            fase = bundle.getString("FASE2");
+        }
+        if(bundle.containsKey("FASE3")){
+            fase = bundle.getString("FASE3");
+        }
+        if(bundle.containsKey("FASE4")){
+            fase = bundle.getString("FASE4");
+        }
+        if(bundle.containsKey("FASE5")){
+            fase = bundle.getString("FASE5");
+        }
+        if(bundle.containsKey("FASE6")){
+            fase = bundle.getString("FASE6");
+        }
 
         Display display = this.getWindowManager().getDefaultDisplay();
 
-        gameView = new GameView(this, display.getWidth(), display.getHeight());
+        try {
+            gameView = new GameView(this, display.getWidth(), display.getHeight(),fase);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         setContentView(gameView);
     }

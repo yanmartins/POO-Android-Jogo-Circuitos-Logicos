@@ -3,12 +3,12 @@ package poo.engtelecom;
 import android.content.Context;
 
 /**
- * Created by aluno on 24/11/17.
+ * Created by Yan Martins on 01/12/2017.
  */
 
-public class OrGate extends LogicGate2 {
+public class XorGate extends LogicGate2 {
 
-    private static final int sIMAGE = R.drawable.or;
+    private static final int sIMAGE = R.drawable.xor;;
 
     private static final int sOFFSETOUTPUTX = 45;
     private static final int sOFFSETOUTPUTY = 0;
@@ -21,12 +21,12 @@ public class OrGate extends LogicGate2 {
 
     private int inputBX;
     private int inputBY;
-
     private boolean segInA;
     private boolean segInB;
     private boolean segOut;
 
-    public OrGate(Context context, int coordX, int coordY) {
+
+    public XorGate(Context context, int coordX, int coordY) {
         super(context, sIMAGE, coordX, coordY);
 
         outputX = x + sOFFSETOUTPUTX;
@@ -76,11 +76,12 @@ public class OrGate extends LogicGate2 {
     }
 
     public void logicaDaPorta(){
-        if (isSegInA() || isSegInB()) {
+        if (isSegInA() && !isSegInB() || isSegInB() && !isSegInA()) {
             setSegOut(true);
         }
-        else if (!isSegInA() && !isSegInB()) {
+        else if (!isSegInA() && !isSegInB() || isSegInA() && isSegInB()) {
             setSegOut(false);
         }
     }
 }
+

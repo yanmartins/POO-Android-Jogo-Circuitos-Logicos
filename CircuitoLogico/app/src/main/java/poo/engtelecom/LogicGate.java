@@ -1,8 +1,6 @@
 package poo.engtelecom;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 
 /**
  * Essa classe abstrata contempla as informações presentes em todas as portas lógicas que serão
@@ -10,8 +8,9 @@ import android.graphics.BitmapFactory;
  * conhecer suas coordenadas (X,Y) na tela, pois serão usadas para desenhas as linhas de conexão entre
  * as portas lógicas em um cenário.
  */
-public abstract class LogicGate extends Componente{
 
+
+public abstract class LogicGate extends Componente {
     // Coordenadas nas tela da saída
     protected int outputX;
     protected int outputY;
@@ -39,4 +38,6 @@ public abstract class LogicGate extends Componente{
     public int getInputAY() {
         return inputAY;
     }
+
+
 }
