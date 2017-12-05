@@ -1,11 +1,13 @@
 package poo.engtelecom;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
+import android.widget.AutoCompleteTextView;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -13,12 +15,18 @@ import java.io.IOException;
 public class GameActivity extends AppCompatActivity {
 
     private GameView gameView;
+    private Display display;
+    private String nome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         String fase = null;
+
         Bundle bundle = getIntent().getExtras();
+
+        this.nome = bundle.getString("JOGADOR");
+
         if(bundle.containsKey("FASE1")){
             fase = bundle.getString("FASE1");
         }
@@ -38,7 +46,7 @@ public class GameActivity extends AppCompatActivity {
             fase = bundle.getString("FASE6");
         }
 
-        Display display = this.getWindowManager().getDefaultDisplay();
+        display = this.getWindowManager().getDefaultDisplay();
 
         try {
             gameView = new GameView(this, display.getWidth(), display.getHeight(),fase, this);
@@ -83,11 +91,14 @@ public class GameActivity extends AppCompatActivity {
     }
 
 
-    public void showDialogFimdeFase(String mensagem, String x) {
+    public void showDialogFimdeFase(String mensagem, int x, final String nomeFase) {
         FileOutputStream outputStream = null;
+        String nomeText = (nome + ".txt");
+        System.out.println(nomeText);
         try {
-            outputStream = openFileOutput("Teste.txt", MODE_APPEND);
-            outputStream.write(Integer.valueOf(x));
+            outputStream = openFileOutput(nomeText, MODE_APPEND);
+            String aux = String.valueOf(x);
+            outputStream.write((nomeFase+ " ;" +aux+"\n").getBytes());
             outputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -106,6 +117,32 @@ public class GameActivity extends AppCompatActivity {
                 })
                 .setNegativeButton(R.string.proxima, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+                        if(nomeFase.equals("fase1.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE2", "fase2.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase2.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE3", "fase3.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase3.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE4", "fase4.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase4.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE5", "fase5.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase5.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE6", "fase6.txt");
+                            startActivity(intent);
+                        }
+
                         dialog.cancel();
                     }
                 });

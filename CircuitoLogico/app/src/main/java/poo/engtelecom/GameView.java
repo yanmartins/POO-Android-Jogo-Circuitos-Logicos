@@ -1,30 +1,22 @@
 package poo.engtelecom;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.support.v7.app.AlertDialog;
-import android.view.Gravity;
+import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.Toast;
-
 import java.io.BufferedReader;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.content.Context.MODE_APPEND;
-
 
 /**
  * É tela principal do jogo onde deverão ser desenhadas as fases. Ou seja, ao carregar uma nova fase
@@ -588,8 +580,8 @@ public class GameView extends SurfaceView {
                 mensagem = "CIRCUITO APROVADO 🎉\n" +
                         "Toques: " + toquesNaTela + "\n" +
                         "Pontuação: " + calculaPontuacao();
-                String x = String.valueOf(calculaPontuacao());
-                gameActivity.showDialogFimdeFase(mensagem,x);
+                int x = calculaPontuacao();
+                gameActivity.showDialogFimdeFase(mensagem,x, nomeFase);
 
 //            Toast toast = Toast.makeText(context, mensagem, Toast.LENGTH_LONG);
 //            toast.setGravity(Gravity.CENTER, 0, 0);
@@ -601,6 +593,7 @@ public class GameView extends SurfaceView {
                 reprovacoes++;
 //            toast.show();
                 gameActivity.showDialogFaseReprovada(mensagem);
+                botaoValidar.pressionarValidar();
             }
 
         }

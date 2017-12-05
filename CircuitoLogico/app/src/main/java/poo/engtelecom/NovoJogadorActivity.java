@@ -37,6 +37,7 @@ public class NovoJogadorActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, GameActivity.class);
         intent.putExtra("FASE1", "fase1.txt");
+        intent.putExtra("JOGADOR",nome.getText().toString());
         startActivity(intent);
     }
 }

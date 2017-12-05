@@ -14,6 +14,8 @@ public class Botao extends Componente {
     private boolean validarPress;
     private int segmentoAssociado;
 
+
+
     public Botao(Context context, int x, int y, int segmentoAssociado) {
         super(context, R.drawable.desativado, x, y);
         pressionado = false;
