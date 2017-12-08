@@ -248,6 +248,7 @@ public class GameView extends SurfaceView {
     private List<Segmento> segmentos;
 
     private Botao botaoValidar;
+    private Botao botaoInterrogacao;
 
     private int toquesNaTela;
     private int pontos = 100;
@@ -276,6 +277,7 @@ public class GameView extends SurfaceView {
         segmentoBotoes = new ArrayList<SegmentoBotao>();
 
         this.botaoValidar = new Botao(context, 1, width - 120, height - 1780, 0);
+        this.botaoInterrogacao = new Botao(context,1,width-800,height-1780,1,1);
 
         try {
             carregaFase(nomeFase);
@@ -342,6 +344,7 @@ public class GameView extends SurfaceView {
             toast.show();
             validacaoDaFase();
         }
+        //if (botao)
     }
 
     @Override
