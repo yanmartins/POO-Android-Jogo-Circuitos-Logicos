@@ -45,6 +45,79 @@ public class GameActivity extends AppCompatActivity {
         if(bundle.containsKey("FASE6")){
             fase = bundle.getString("FASE6");
         }
+        if(bundle.containsKey("FASE7")){
+            fase = bundle.getString("FASE7");
+        }
+        if(bundle.containsKey("FASE8")){
+            fase = bundle.getString("FASE8");
+        }
+        if(bundle.containsKey("FASE9")){
+            fase = bundle.getString("FASE9");
+        }
+        if(bundle.containsKey("FASE10")){
+            fase = bundle.getString("FASE10");
+        }
+        if(bundle.containsKey("FASE11")){
+            fase = bundle.getString("FASE11");
+        }
+        if(bundle.containsKey("FASE12")){
+            fase = bundle.getString("FASE12");
+        }
+        if(bundle.containsKey("FASE13")){
+            fase = bundle.getString("FASE13");
+        }
+        if(bundle.containsKey("FASE14")){
+            fase = bundle.getString("FASE14");
+        }
+        if(bundle.containsKey("FASE15")){
+            fase = bundle.getString("FASE15");
+        }
+        if(bundle.containsKey("FASE16")){
+            fase = bundle.getString("FASE16");
+        }
+        if(bundle.containsKey("FASE17")){
+            fase = bundle.getString("FASE17");
+        }
+        if(bundle.containsKey("FASE18")){
+            fase = bundle.getString("FASE18");
+        }
+        if(bundle.containsKey("FASE19")){
+            fase = bundle.getString("FASE19");
+        }
+        if(bundle.containsKey("FASE20")){
+            fase = bundle.getString("FASE20");
+        }
+        if(bundle.containsKey("FASE21")){
+            fase = bundle.getString("FASE21");
+        }
+        if(bundle.containsKey("FASE22")){
+            fase = bundle.getString("FASE22");
+        }
+        if(bundle.containsKey("FASE23")){
+            fase = bundle.getString("FASE23");
+        }
+        if(bundle.containsKey("FASE24")){
+            fase = bundle.getString("FASE24");
+        }
+        if(bundle.containsKey("FASE25")){
+            fase = bundle.getString("FASE25");
+        }
+        if(bundle.containsKey("FASE26")){
+            fase = bundle.getString("FASE26");
+        }
+        if(bundle.containsKey("FASE27")){
+            fase = bundle.getString("FASE27");
+        }
+        if(bundle.containsKey("FASE28")){
+            fase = bundle.getString("FASE28");
+        }
+        if(bundle.containsKey("FASE29")){
+            fase = bundle.getString("FASE29");
+        }
+        if(bundle.containsKey("FASE30")){
+            fase = bundle.getString("FASE30");
+        }
+
 
         display = this.getWindowManager().getDefaultDisplay();
 
@@ -142,6 +215,135 @@ public class GameActivity extends AppCompatActivity {
                             intent.putExtra("FASE6", "fase6.txt");
                             startActivity(intent);
                         }
+                        if(nomeFase.equals("fase6.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE7", "fase7.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase7.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE8", "fase8.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase8.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE9", "fase9.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase9.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE10", "fase10.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase10.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE11", "fase11.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase11.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE12", "fase12.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase12.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE13", "fase13.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase13.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE14", "fase14.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase14.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE15", "fase15.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase15.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE16", "fase16.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase16.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE17", "fase17.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase17.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE18", "fase18.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase18.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE19", "fase19.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase19.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE20", "fase20.txt");
+                            startActivity(intent);
+                        }if(nomeFase.equals("fase20.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE21", "fase21.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase21.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE22", "fase22.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase22.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE23", "fase23.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase23.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE24", "fase24.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase24.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE25", "fase25.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase25.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE26", "fase26.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase26.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE27", "fase27.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase27.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE28", "fase28.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase28.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE29", "fase29.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase29.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE30", "fase30.txt");
+                            startActivity(intent);
+                        }
+                        if(nomeFase.equals("fase30.txt")) {
+                            Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                            intent.putExtra("FASE12", "fase12.txt");
+                            startActivity(intent);
+                        }
+
+
+
+
+
 
                         dialog.cancel();
                     }
