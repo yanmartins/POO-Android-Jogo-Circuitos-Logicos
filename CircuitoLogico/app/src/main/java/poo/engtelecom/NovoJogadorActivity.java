@@ -29,7 +29,7 @@ public class NovoJogadorActivity extends AppCompatActivity {
         FileOutputStream outputStream = null;
         try {
             outputStream = openFileOutput(filename, MODE_APPEND);
-            outputStream.write((nome.getText() + "\n").getBytes());
+            //outputStream.write((nome.getText() + "\n").getBytes());
             outputStream.close();
         } catch (IOException e) {
             e.printStackTrace();

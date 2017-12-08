@@ -279,7 +279,7 @@ public class GameView extends SurfaceView {
             this.terminaComNot = false;
 
         this.botaoValidar = new Botao(context, 1, width - 120, height - 1780, 0);
-        this.botaoInterrogacao = new Botao(context,1,width-800,height-1780,1,1);
+        this.botaoInterrogacao = new Botao(context, 1, width - 1050, height - 1780, 1, 1);
 
         try {
             carregaFase(nomeFase);
@@ -350,6 +350,11 @@ public class GameView extends SurfaceView {
             Toast toast = Toast.makeText(context, mensagem, Toast.LENGTH_SHORT);
             toast.show();
             validacaoDaFase();
+        }
+        if (botaoInterrogacao.clicouNoBotao(x, y)) {
+            String mensagem = "Ative as portas necessárias para ligar o LED";
+            Toast toast = Toast.makeText(context, mensagem, Toast.LENGTH_SHORT);
+            toast.show();
         }
     }
 
@@ -514,6 +519,7 @@ public class GameView extends SurfaceView {
             // Escolhendo uma cor que foi definida nos Recursos XML (res/values/colors.xml)
             canvas.drawColor(getContext().getColor(R.color.branco));
 
+            desenharBotaoInterrogacao(canvas);
             desenharBotaoValidar(canvas);
             desenharPorta(canvas);
             desenharBotao(canvas);
@@ -618,6 +624,10 @@ public class GameView extends SurfaceView {
 
     private void desenharBotaoValidar(Canvas canvas) {
         canvas.drawBitmap(botaoValidar.getBitmap(), botaoValidar.getX(), botaoValidar.getY(), paint);
+    }
+
+    private void desenharBotaoInterrogacao(Canvas canvas) {
+        canvas.drawBitmap(botaoInterrogacao.getBitmap(), botaoInterrogacao.getX(), botaoInterrogacao.getY(), paint);
     }
 
     private void validacaoDaFase() {

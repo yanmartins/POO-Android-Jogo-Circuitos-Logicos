@@ -67,12 +67,12 @@ public class ContinuarActivity extends AppCompatActivity {
         if (nomes.size() == 1){
             t1.setText(nomes.get(0));
         }
-        else {
-            Toast toast = Toast.makeText(this, "Não existem jogadores cadastrados", Toast.LENGTH_LONG);
-            toast.show();
-            finish();
+        //else {
+        //    Toast toast = Toast.makeText(this, "Não existem jogadores cadastrados", Toast.LENGTH_LONG);
+        //    toast.show();
+        //    finish();
 
-        }
+        //}
         jogEscolhido = (EditText) findViewById(R.id.jogEscolhido);
     }
 
@@ -124,6 +124,56 @@ public class ContinuarActivity extends AppCompatActivity {
             }
             if (dados[0].contains("fase4.txt")) {
                 intent.putExtra("FASE5", "fase5.txt");
+                intent.putExtra("JOGADOR", jogEscolhido.getText().toString());
+                startActivity(intent);
+            }
+            if (dados[0].contains("fase5.txt")) {
+                intent.putExtra("FASE6", "fase6.txt");
+                intent.putExtra("JOGADOR", jogEscolhido.getText().toString());
+                startActivity(intent);
+            }
+            if (dados[0].contains("fase6.txt")) {
+                intent.putExtra("FASE7", "fase7.txt");
+                intent.putExtra("JOGADOR", jogEscolhido.getText().toString());
+                startActivity(intent);
+            }
+            if (dados[0].contains("fase7.txt")) {
+                intent.putExtra("FASE8", "fase8.txt");
+                intent.putExtra("JOGADOR", jogEscolhido.getText().toString());
+                startActivity(intent);
+            }
+            if (dados[0].contains("fase8.txt")) {
+                intent.putExtra("FASE9", "fase9.txt");
+                intent.putExtra("JOGADOR", jogEscolhido.getText().toString());
+                startActivity(intent);
+            }
+            if (dados[0].contains("fase9.txt")) {
+                intent.putExtra("FASE10", "fase10.txt");
+                intent.putExtra("JOGADOR", jogEscolhido.getText().toString());
+                startActivity(intent);
+            }
+            if (dados[0].contains("fase10.txt")) {
+                intent.putExtra("FASE11", "fase11.txt");
+                intent.putExtra("JOGADOR", jogEscolhido.getText().toString());
+                startActivity(intent);
+            }
+            if (dados[0].contains("fase11.txt")) {
+                intent.putExtra("FASE12", "fase12.txt");
+                intent.putExtra("JOGADOR", jogEscolhido.getText().toString());
+                startActivity(intent);
+            }
+            if (dados[0].contains("fase12.txt")) {
+                intent.putExtra("FASE13", "fase13.txt");
+                intent.putExtra("JOGADOR", jogEscolhido.getText().toString());
+                startActivity(intent);
+            }
+            if (dados[0].contains("fase13.txt")) {
+                intent.putExtra("FASE14", "fase14.txt");
+                intent.putExtra("JOGADOR", jogEscolhido.getText().toString());
+                startActivity(intent);
+            }
+            if (dados[0].contains("fase14.txt")) {
+                intent.putExtra("FASE15", "fase15.txt");
                 intent.putExtra("JOGADOR", jogEscolhido.getText().toString());
                 startActivity(intent);
             }

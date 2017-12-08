@@ -13,7 +13,7 @@ public class Botao extends Componente {
     private boolean pressionado;
     private boolean validarPress;
     private int segmentoAssociado;
-    private int interrogação;
+    private int interrogacao;
 
 
 
@@ -28,7 +28,7 @@ public class Botao extends Componente {
         validarPress = false;
     }
 
-    public Botao(Context context, int drawableResource, int x, int y,int segmentoAssociado,int interrogação) {
+    public Botao(Context context, int drawableResource, int x, int y,int segmentoAssociado,int interrogacao) {
         super(context, R.drawable.interrogacao, x, y);
         validarPress = false;
     }
