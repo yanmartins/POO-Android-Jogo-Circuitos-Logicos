@@ -10,11 +10,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.IllegalFormatCodePointException;
 import java.util.List;
 
 public class ContinuarActivity extends AppCompatActivity {
@@ -75,6 +77,15 @@ public class ContinuarActivity extends AppCompatActivity {
         //}
         jogEscolhido = (EditText) findViewById(R.id.jogEscolhido);
     }
+    public void excluirJogador(View view){
+        String path = "/data/data/poo.engtelecom/files"+jogEscolhido.getText()+".txt";
+        System.out.println(path);
+        File file = new File(path);
+        file.delete();
+        Intent intent = new Intent(this, ContinuarActivity.class);
+        startActivity(intent);
+    }
+
 
     public void iniciarGameActivity(View view) {
 
