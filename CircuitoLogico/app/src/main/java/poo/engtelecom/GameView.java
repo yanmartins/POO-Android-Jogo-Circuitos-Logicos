@@ -6,11 +6,11 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.Toast;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -137,8 +137,7 @@ public class GameView extends SurfaceView {
 
             if (tipoDaPortaDest.equals("not")) {
                 portasNot.get(portaAssociadaDest).setSegInA(segmentoLigado);
-            }
-            else {
+            } else {
                 if (terminalAssociado == 'a') {
                     portas.get(portaAssociadaDest).setSegInA(segmentoLigado);
                 } else portas.get(portaAssociadaDest).setSegInB(segmentoLigado);
@@ -151,9 +150,7 @@ public class GameView extends SurfaceView {
                 if (portasNot.get(portaAssociadaOrig).isSegOut()) {
                     setSegmentoLigado(true);
                 } else setSegmentoLigado(false);
-            }
-
-            else  {
+            } else {
                 if (portas.get(portaAssociadaOrig).isSegOut()) {
                     setSegmentoLigado(true);
                 } else setSegmentoLigado(false);
@@ -235,8 +232,7 @@ public class GameView extends SurfaceView {
 
             if (tipoDaPortaDest.equals("not")) {
                 portasNot.get(portaAssociadaDest).setSegInA(segmentoLigado);
-            }
-            else {
+            } else {
                 if (terminalAssociado == 'a') {
                     portas.get(portaAssociadaDest).setSegInA(segmentoLigado);
 
@@ -259,34 +255,34 @@ public class GameView extends SurfaceView {
     private int reprovacoes;
 
 
-    public GameView(Context context, int width, int height, String nomeFase,GameActivity gameActivity) throws IOException {
+    public GameView(Context context, int width, int height, String nomeFase, GameActivity gameActivity) throws IOException {
 
-            super(context);
-            this.context = context;
-            this.gameActivity = gameActivity;
-            this.width = width;
-            this.height = height;
-            this.nomeFase = nomeFase;
-            this.gameActivity = gameActivity;
-            surfaceHolder = getHolder();
-            paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-            setWillNotDraw(false);
+        super(context);
+        this.context = context;
+        this.gameActivity = gameActivity;
+        this.width = width;
+        this.height = height;
+        this.nomeFase = nomeFase;
+        this.gameActivity = gameActivity;
+        surfaceHolder = getHolder();
+        paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        setWillNotDraw(false);
 
-            botoes = new ArrayList<Botao>();
-            portasNot = new ArrayList<NotGate>();
-            portas = new ArrayList<LogicGate2>();
+        botoes = new ArrayList<Botao>();
+        portasNot = new ArrayList<NotGate>();
+        portas = new ArrayList<LogicGate2>();
 
-            segmentos = new ArrayList<Segmento>();
-            segmentoBotoes = new ArrayList<SegmentoBotao>();
+        segmentos = new ArrayList<Segmento>();
+        segmentoBotoes = new ArrayList<SegmentoBotao>();
 
-            this.botaoValidar = new Botao(context, 1, width - 120, height - 1780, 0);
+        this.botaoValidar = new Botao(context, 1, width - 120, height - 1780, 0);
 
-            try {
-                carregaFase(nomeFase);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        try {
+            carregaFase(nomeFase);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+    }
 
     public void setMAXToques(int MAXToques) {
         this.MAXToques = MAXToques;
@@ -357,12 +353,10 @@ public class GameView extends SurfaceView {
     /**
      * PORTA; TIPO; X; Y
      * BOTAO; X; segmentoASSOCIADO
-     *
      */
     //SEGMENTO; BOTAO; intPORTA; tipoPORTA; terminal; dificuldade; botaoAssociado
 
     //SEGMENTO; COMUM; portaDestino; terminal; intPortaDest; portaOrigem; intPortaOrigem; dificuldade"
-
     public void carregaFase(String nomeFase) throws IOException {
         AssetManager assetManager = getResources().getAssets();
         InputStream inputStream;
@@ -384,7 +378,7 @@ public class GameView extends SurfaceView {
                 if (vetLinha[0].equals("segmento")) {
                     criarSegmentos(vetLinha);
                 }
-                if(vetLinha[0].equals("fase")){
+                if (vetLinha[0].equals("fase")) {
                     setMAXToques(Integer.parseInt(vetLinha[1]));
                 }
             }
@@ -395,7 +389,7 @@ public class GameView extends SurfaceView {
 
     private void criarSegmentos(String[] v) {
 
-        if(v[1].equals("comum")) {
+        if (v[1].equals("comum")) {
             if (v[3].charAt(0) == 'a') {
                 Segmento segmento = new Segmento(portas.get(Integer.parseInt(v[4])).getInputAX(), portas.get(Integer.parseInt(v[4])).getInputAY(),
                         portas.get(Integer.parseInt(v[6])).getOutputX(), portas.get(Integer.parseInt(v[6])).getOutputY(),
@@ -408,44 +402,42 @@ public class GameView extends SurfaceView {
                 segmentos.add(segmento);
             }
 
-        }
-
-        else if(v[1].equals("botao")){
+        } else if (v[1].equals("botao")) {
             SegmentoBotao segBotao;
 
             if (v[4].charAt(0) == 'a') {
 
                 segBotao = new SegmentoBotao(portas.get(Integer.parseInt(v[2])).getInputAX(), portas.get(Integer.parseInt(v[2])).getInputAY(),
-                        ((botoes.get(0).getBitmap().getWidth()) / 2 + (botoes.get(Integer.parseInt(v[6])).getX())), height - 150,  Boolean.parseBoolean(v[5]), v[3], Integer.parseInt(v[2]), 'a');
+                        ((botoes.get(0).getBitmap().getWidth()) / 2 + (botoes.get(Integer.parseInt(v[6])).getX())), height - 150, Boolean.parseBoolean(v[5]), v[3], Integer.parseInt(v[2]), 'a');
                 segmentoBotoes.add(segBotao);
-            } else{
+            } else {
                 segBotao = new SegmentoBotao(portas.get(Integer.parseInt(v[2])).getInputBX(), portas.get(Integer.parseInt(v[2])).getInputBY(),
-                        ((botoes.get(0).getBitmap().getWidth()) / 2 + (botoes.get(Integer.parseInt(v[6])).getX())), height - 150,  Boolean.parseBoolean(v[5]), v[3], Integer.parseInt(v[2]), 'b');
+                        ((botoes.get(0).getBitmap().getWidth()) / 2 + (botoes.get(Integer.parseInt(v[6])).getX())), height - 150, Boolean.parseBoolean(v[5]), v[3], Integer.parseInt(v[2]), 'b');
                 segmentoBotoes.add(segBotao);
             }
         }
     }
 
     private void criarBotoes(String[] v) {
-        Botao botao = new Botao(context, (width / 100)*(Integer.parseInt(v[1])), height - 150, Integer.parseInt(v[2]));
+        Botao botao = new Botao(context, (width / 100) * (Integer.parseInt(v[1])), height - 150, Integer.parseInt(v[2]));
         botoes.add(botao);
     }
 
     private void criarPortas(String[] v) {
-        if(v[1].equals("and")){
-            AndGate and = new AndGate(context, width / 100 * (Integer.parseInt(v[2])), (height/100)*(Integer.parseInt(v[3])));
+        if (v[1].equals("and")) {
+            AndGate and = new AndGate(context, width / 100 * (Integer.parseInt(v[2])), (height / 100) * (Integer.parseInt(v[3])));
             portas.add(and);
         }
-        if(v[1].equals("or")){
-            OrGate or = new OrGate(context, width / 100 * (Integer.parseInt(v[2])), (height/100)*(Integer.parseInt(v[3])));
+        if (v[1].equals("or")) {
+            OrGate or = new OrGate(context, width / 100 * (Integer.parseInt(v[2])), (height / 100) * (Integer.parseInt(v[3])));
             portas.add(or);
         }
-        if(v[1].equals("xor")){
-            XorGate xor = new XorGate(context, width / 100 * (Integer.parseInt(v[2])), (height/100)*(Integer.parseInt(v[3])));
+        if (v[1].equals("xor")) {
+            XorGate xor = new XorGate(context, width / 100 * (Integer.parseInt(v[2])), (height / 100) * (Integer.parseInt(v[3])));
             portas.add(xor);
         }
-        if(v[1].equals("not")){
-            NotGate not = new NotGate(context, width / 100 * (Integer.parseInt(v[2])), (height/100)*(Integer.parseInt(v[3])));
+        if (v[1].equals("not")) {
+            NotGate not = new NotGate(context, width / 100 * (Integer.parseInt(v[2])), (height / 100) * (Integer.parseInt(v[3])));
             portasNot.add(not);
         }
     }
@@ -471,8 +463,8 @@ public class GameView extends SurfaceView {
 
             System.out.println("Botoes: " + botoes.size());
             System.out.println("Segmentos bot: " + segmentoBotoes.size());
-            System.out.println("Segmentos: "+segmentos.size());
-            System.out.println("Portas: "+ portas.size());
+            System.out.println("Segmentos: " + segmentos.size());
+            System.out.println("Portas: " + portas.size());
             surfaceHolder.unlockCanvasAndPost(canvas);
         }
     }
@@ -575,34 +567,28 @@ public class GameView extends SurfaceView {
          * VERIFICAR SE TODOS ESTÃO LIGADOS
          */
         String mensagem = null;
-            if (portas.get(0).isSegOut()) {
+        if (portas.get(0).isSegOut()) {
 
-                mensagem = "CIRCUITO APROVADO 🎉\n" +
-                        "Toques: " + toquesNaTela + "\n" +
-                        "Pontuação: " + calculaPontuacao();
-                int x = calculaPontuacao();
-                gameActivity.showDialogFimdeFase(mensagem,x, nomeFase);
+            mensagem = "CIRCUITO APROVADO 🎉\n" +
+                    "Toques: " + toquesNaTela + "\n" +
+                    "Pontuação: " + calculaPontuacao();
+            int x = calculaPontuacao();
+            gameActivity.showDialogFimdeFase(mensagem, x, nomeFase);
 
-//            Toast toast = Toast.makeText(context, mensagem, Toast.LENGTH_LONG);
-//            toast.setGravity(Gravity.CENTER, 0, 0);
-//            toast.show();
-            } else {
-                mensagem = "CIRCUITO REPROVADO 😭\n" +
-                        "-10 pontos";
-//            Toast toast = Toast.makeText(context, mensagem, Toast.LENGTH_LONG);
-                reprovacoes++;
-//            toast.show();
-                gameActivity.showDialogFaseReprovada(mensagem);
-                botaoValidar.pressionarValidar();
-            }
-
+        } else {
+            mensagem = "CIRCUITO REPROVADO 😭\n" +
+                    "-10 pontos";
+            reprovacoes++;
+            gameActivity.showDialogFaseReprovada(mensagem);
+            botaoValidar.pressionarValidar();
         }
 
+    }
 
     private int calculaPontuacao() {
         int pontoDeToque;
         pontoDeToque = toquesNaTela - MAXToques;
-        pontos = pontos - pontoDeToque*5 - reprovacoes*10;
+        pontos = pontos - pontoDeToque * 5 - reprovacoes * 10;
         return pontos;
     }
 }

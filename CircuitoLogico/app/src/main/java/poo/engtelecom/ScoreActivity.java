@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
-
 import java.util.Random;
 
 public class ScoreActivity extends AppCompatActivity {
@@ -36,6 +35,7 @@ public class ScoreActivity extends AppCompatActivity {
         ponto3.setText(String.valueOf(sharedPreferences.getInt( "ponto3", 0)));
         ponto4.setText(String.valueOf(sharedPreferences.getInt( "ponto4", 0)));
         ponto5.setText(String.valueOf(sharedPreferences.getInt( "ponto5", 0)));
+
 
     }
 

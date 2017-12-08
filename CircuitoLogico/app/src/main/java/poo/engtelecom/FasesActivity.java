@@ -1,3 +1,4 @@
+/*
 package poo.engtelecom;
 
 import android.content.DialogInterface;
@@ -7,6 +8,12 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.LinkedList;
 
 public class FasesActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -29,6 +36,7 @@ public class FasesActivity extends AppCompatActivity implements View.OnClickList
         fase5.setOnClickListener(this);
         fase6 = (Button) findViewById(R.id.fase06);
         fase6.setOnClickListener(this);
+
     }
 
     @Override
@@ -98,3 +106,4 @@ public class FasesActivity extends AppCompatActivity implements View.OnClickList
         alert.show();
     }
 }
+*/

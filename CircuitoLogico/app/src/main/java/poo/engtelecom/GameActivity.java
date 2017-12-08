@@ -27,35 +27,36 @@ public class GameActivity extends AppCompatActivity {
 
         this.nome = bundle.getString("JOGADOR");
 
-        if(bundle.containsKey("FASE1")){
+        if (bundle.containsKey("FASE1")) {
             fase = bundle.getString("FASE1");
         }
-        if(bundle.containsKey("FASE2")){
+        if (bundle.containsKey("FASE2")) {
             fase = bundle.getString("FASE2");
         }
-        if(bundle.containsKey("FASE3")){
+        if (bundle.containsKey("FASE3")) {
             fase = bundle.getString("FASE3");
         }
-        if(bundle.containsKey("FASE4")){
+        if (bundle.containsKey("FASE4")) {
             fase = bundle.getString("FASE4");
         }
-        if(bundle.containsKey("FASE5")){
+        if (bundle.containsKey("FASE5")) {
             fase = bundle.getString("FASE5");
         }
-        if(bundle.containsKey("FASE6")){
+        if (bundle.containsKey("FASE6")) {
             fase = bundle.getString("FASE6");
         }
 
         display = this.getWindowManager().getDefaultDisplay();
 
         try {
-            gameView = new GameView(this, display.getWidth(), display.getHeight(),fase, this);
+            gameView = new GameView(this, display.getWidth(), display.getHeight(), fase, this);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         setContentView(gameView);
     }
+
 
     @Override
     public void onPause() {
@@ -70,12 +71,12 @@ public class GameActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.DialogStyleGreenAndYellow);
-        builder.setMessage("Deseja voltar ao menu de fases?")
+        builder.setMessage("Deseja voltar?")
                 .setCancelable(false)
                 .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
-                        Intent intent = new Intent(getApplicationContext(), FasesActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                         finish();
                     }
@@ -94,11 +95,12 @@ public class GameActivity extends AppCompatActivity {
     public void showDialogFimdeFase(String mensagem, int x, final String nomeFase) {
         FileOutputStream outputStream = null;
         String nomeText = (nome + ".txt");
+        System.out.println("NOME JOGADOR" + nome);
         System.out.println(nomeText);
         try {
             outputStream = openFileOutput(nomeText, MODE_APPEND);
             String aux = String.valueOf(x);
-            outputStream.write((nomeFase+ " ;" +aux+"\n").getBytes());
+            outputStream.write((nomeFase + " ;" + aux + "\n").getBytes());
             outputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -110,36 +112,41 @@ public class GameActivity extends AppCompatActivity {
                 .setPositiveButton(R.string.voltar, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
-                        Intent intent = new Intent(getApplicationContext(), FasesActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                         finish();
                     }
                 })
                 .setNegativeButton(R.string.proxima, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        if(nomeFase.equals("fase1.txt")) {
+                        if (nomeFase.equals("fase1.txt")) {
                             Intent intent = new Intent(getApplicationContext(), GameActivity.class);
                             intent.putExtra("FASE2", "fase2.txt");
+                            intent.putExtra("JOGADOR", nome);
                             startActivity(intent);
                         }
-                        if(nomeFase.equals("fase2.txt")) {
+                        if (nomeFase.equals("fase2.txt")) {
                             Intent intent = new Intent(getApplicationContext(), GameActivity.class);
                             intent.putExtra("FASE3", "fase3.txt");
+                            intent.putExtra("JOGADOR", nome);
                             startActivity(intent);
                         }
-                        if(nomeFase.equals("fase3.txt")) {
+                        if (nomeFase.equals("fase3.txt")) {
                             Intent intent = new Intent(getApplicationContext(), GameActivity.class);
                             intent.putExtra("FASE4", "fase4.txt");
+                            intent.putExtra("JOGADOR", nome);
                             startActivity(intent);
                         }
-                        if(nomeFase.equals("fase4.txt")) {
+                        if (nomeFase.equals("fase4.txt")) {
                             Intent intent = new Intent(getApplicationContext(), GameActivity.class);
                             intent.putExtra("FASE5", "fase5.txt");
+                            intent.putExtra("JOGADOR", nome);
                             startActivity(intent);
                         }
-                        if(nomeFase.equals("fase5.txt")) {
+                        if (nomeFase.equals("fase5.txt")) {
                             Intent intent = new Intent(getApplicationContext(), GameActivity.class);
                             intent.putExtra("FASE6", "fase6.txt");
+                            intent.putExtra("JOGADOR", nome);
                             startActivity(intent);
                         }
 
@@ -158,7 +165,7 @@ public class GameActivity extends AppCompatActivity {
                 .setPositiveButton(R.string.voltar, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
-                        Intent intent = new Intent(getApplicationContext(), FasesActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                         finish();
                     }
