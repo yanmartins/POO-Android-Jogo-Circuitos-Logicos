@@ -1,0 +1,5 @@
+fase;0
+porta;not;50;50
+botao;50;0
+segmento;botao;0;not;a;true;0
+terminaComNot

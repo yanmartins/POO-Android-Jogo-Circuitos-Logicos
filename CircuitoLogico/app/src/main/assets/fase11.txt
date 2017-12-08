@@ -1,0 +1,12 @@
+fase;1
+porta;and;50;25
+porta;xor;30;50
+porta;not;20;75
+botao;30;0
+botao;50;1
+botao;70;2
+segmento;botao;0;not;a;true;0
+segmento;botao;1;xor;b;true;1
+segmento;botao;0;and;b;true;2
+segmento;comum;and;a;0;xor;1;true
+segmento;comum;xor;a;1;not;0;true
