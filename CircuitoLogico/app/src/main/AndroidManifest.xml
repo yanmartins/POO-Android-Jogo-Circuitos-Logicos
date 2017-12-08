@@ -26,7 +26,8 @@
         <activity android:name=".NotActivity" />
         <activity android:name=".XorActivity" />
         <activity android:name=".FasesActivity" />
-        <activity android:name=".NovoJogadorActivity"></activity>
+        <activity android:name=".NovoJogadorActivity" />
+        <activity android:name=".ContinuarActivity"></activity>
     </application>
 
 </manifest>

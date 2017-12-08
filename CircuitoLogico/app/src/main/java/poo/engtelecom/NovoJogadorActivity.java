@@ -20,7 +20,7 @@ public class NovoJogadorActivity extends AppCompatActivity {
         nome = (EditText) findViewById(R.id.nome);
     }
 
-    public void iniciarFasesActivity(View view) {
+    public void iniciarGameActivity(View view) {
 
         Toast toast = Toast.makeText(this, "Bom Jogo\n" + nome.getText(), Toast.LENGTH_LONG);
         toast.show();
@@ -31,6 +31,15 @@ public class NovoJogadorActivity extends AppCompatActivity {
             outputStream = openFileOutput(filename, MODE_APPEND);
             outputStream.write((nome.getText() + "\n").getBytes());
             outputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String filename1 = String.valueOf("jogadores.txt");
+        FileOutputStream outputStream1 = null;
+        try {
+            outputStream1 = openFileOutput(filename1, MODE_APPEND);
+            outputStream1.write((filename.substring(0,filename.length() - 4) + "\n").getBytes());
+            outputStream1.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

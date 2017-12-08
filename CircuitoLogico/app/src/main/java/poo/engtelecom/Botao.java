@@ -13,6 +13,7 @@ public class Botao extends Componente {
     private boolean pressionado;
     private boolean validarPress;
     private int segmentoAssociado;
+    private int interrogação;
 
 
 
@@ -26,6 +27,12 @@ public class Botao extends Componente {
         super(context, R.drawable.offvalidar, x, y);
         validarPress = false;
     }
+
+    public Botao(Context context, int drawableResource, int x, int y,int segmentoAssociado,int interrogação) {
+        super(context, R.drawable.interrogacao, x, y);
+        validarPress = false;
+    }
+
 
     /**
      * Troca a imagem do botão de acordo com seu estado

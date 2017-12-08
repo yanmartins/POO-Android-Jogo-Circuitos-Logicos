@@ -34,13 +34,18 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void iniciarFasesActivity(View view){
-        Intent intent = new Intent(this, FasesActivity.class);
-        startActivity(intent);
-    }
+    //public void iniciarFasesActivity(View view){
+    //    Intent intent = new Intent(this, FasesActivity.class);
+    //    startActivity(intent);
+    //}
 
     public void iniciarNovoJogadorActivity(View view){
         Intent intent = new Intent(this, NovoJogadorActivity.class);
+        startActivity(intent);
+    }
+
+    public void continuarActivity(View view){
+        Intent intent = new Intent(this, ContinuarActivity.class);
         startActivity(intent);
     }
 
