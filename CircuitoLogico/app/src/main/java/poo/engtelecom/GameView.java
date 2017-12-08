@@ -415,8 +415,15 @@ public class GameView extends SurfaceView {
                     setTerminaComNot(true);
                 }
             }
-            Lampada lampada = new Lampada(context, portas.get(0).outputX, portas.get(0).outputY);
-            lampadas.add(lampada);
+
+            if(isTerminaComNot()){
+                Lampada lampada = new Lampada(context, portasNot.get(0).outputX-40, portasNot.get(0).outputY-150);
+                lampadas.add(lampada);
+            }
+            else {
+                Lampada lampada = new Lampada(context, portas.get(0).outputX - 40, portas.get(0).outputY - 150);
+                lampadas.add(lampada);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -658,7 +665,7 @@ public class GameView extends SurfaceView {
 
         if(isTerminaComNot()){
             if (portasNot.get(0).isSegOut()) {
-
+                lampadas.get(0).setAceso(true);
                 mensagem = "CIRCUITO APROVADO 🎉\n" +
                         "Total de toques: " + toquesNaTela + "\n" +
                         "Toques excedidos: " + (toquesNaTela - MAXToques) + "\n" +
@@ -677,7 +684,7 @@ public class GameView extends SurfaceView {
         }
         else {
             if (portas.get(0).isSegOut()) {
-
+                lampadas.get(0).setAceso(true);
                 mensagem = "CIRCUITO APROVADO 🎉\n" +
                         "Total de toques: " + toquesNaTela + "\n" +
                         "Toques excedidos: " + (toquesNaTela - MAXToques) + "\n" +
