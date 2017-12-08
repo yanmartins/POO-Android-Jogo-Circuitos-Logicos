@@ -10,11 +10,11 @@ public class NotGate extends LogicGate {
 
     private static final int sIMAGE = R.drawable.not;;
 
-    private static final int sOFFSETOUTPUTX = 35;
-    private static final int sOFFSETOUTPUTY = 7;
+    private static final int sOFFSETOUTPUTX = 45;
+    private static final int sOFFSETOUTPUTY = 0;
 
-    private static final int sOFFSETINPUTAX = 35;
-    private static final int sOFFSETINPUTAY = -3;
+    private static final int sOFFSETINPUTAX = 45;
+    private static final int sOFFSETINPUTAY = -5;
 
     private boolean segInA;
     private boolean segOut;
