@@ -241,11 +241,26 @@ public class GameView extends SurfaceView {
         }
     }
 
+    private class Lampada extends Componente{
+
+        boolean aceso;
+        public Lampada(Context context, int x, int y) {
+            super(context, R.drawable.ledapagado, x, y);
+            aceso = false;
+        }
+
+        public void setAceso(boolean aceso) {
+            this.setBitmap(R.drawable.ledaceso);
+            this.aceso = aceso;
+        }
+    }
+
     private List<Botao> botoes;
     private List<NotGate> portasNot;
     private List<SegmentoBotao> segmentoBotoes;
     private List<LogicGate2> portas;
     private List<Segmento> segmentos;
+    private List<Lampada> lampadas;
 
     private Botao botaoValidar;
     private Botao botaoInterrogacao;
@@ -273,13 +288,14 @@ public class GameView extends SurfaceView {
         botoes = new ArrayList<Botao>();
         portasNot = new ArrayList<NotGate>();
         portas = new ArrayList<LogicGate2>();
+        lampadas = new ArrayList<Lampada>();
 
         segmentos = new ArrayList<Segmento>();
         segmentoBotoes = new ArrayList<SegmentoBotao>();
             this.terminaComNot = false;
 
-        this.botaoValidar = new Botao(context, 1, width - 120, height - 1780, 0);
-        this.botaoInterrogacao = new Botao(context, 1, width - 1050, height - 1780, 1, 1);
+        this.botaoValidar = new Botao(context, 1, (width/100)*90, (height/100)*5, 0);
+        this.botaoInterrogacao = new Botao(context, 1, (width/100)*5, (height/100)*5, 1, 1);
 
         try {
             carregaFase(nomeFase);
@@ -399,6 +415,8 @@ public class GameView extends SurfaceView {
                     setTerminaComNot(true);
                 }
             }
+            Lampada lampada = new Lampada(context, portas.get(0).outputX, portas.get(0).outputY);
+            lampadas.add(lampada);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -525,6 +543,7 @@ public class GameView extends SurfaceView {
             desenharBotao(canvas);
             desenharSegmentoBotao(canvas);
             desenharSegmento(canvas);
+            canvas.drawBitmap(lampadas.get(0).getBitmap(), lampadas.get(0).getX(), lampadas.get(0).getY(), paint);
 
 //            System.out.println("Botoes: " + botoes.size());
 //            System.out.println("Segmentos bot: " + segmentoBotoes.size());
