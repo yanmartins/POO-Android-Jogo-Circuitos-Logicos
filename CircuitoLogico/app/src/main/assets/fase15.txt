@@ -1,4 +1,4 @@
-fase;4
+fase;1
 porta;xor;47;25
 porta;or;30;45
 porta;or;62;45

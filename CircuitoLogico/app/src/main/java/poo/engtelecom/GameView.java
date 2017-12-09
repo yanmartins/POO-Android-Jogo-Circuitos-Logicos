@@ -368,7 +368,8 @@ public class GameView extends SurfaceView {
             validacaoDaFase();
         }
         if (botaoInterrogacao.clicouNoBotao(x, y)) {
-            String mensagem = "Ative as portas necessárias para ligar o LED";
+            String mensagem = "Ative as portas necessárias para ligar o LED. \n\n" +
+                    "Para mais dicas acesse o menu de dicas no menu principal";
             Toast toast = Toast.makeText(context, mensagem, Toast.LENGTH_SHORT);
             toast.show();
         }
@@ -427,6 +428,11 @@ public class GameView extends SurfaceView {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+//        String mensagem = nomeFase.substring(0, nomeFase.length()-4);
+//        Toast toast = Toast.makeText(context, mensagem, Toast.LENGTH_SHORT);
+//        toast.show();
+
     }
 
     public void setTerminaComNot(boolean terminaComNot) {
@@ -706,7 +712,7 @@ public class GameView extends SurfaceView {
     private int calculaPontuacao() {
         int pontoDeToque;
         pontoDeToque = toquesNaTela - MAXToques;
-        pontos = pontos - pontoDeToque * 5 - reprovacoes * 10;
+        pontos = pontos - (pontoDeToque * 5) - (reprovacoes * 10);
         return pontos;
     }
 }
